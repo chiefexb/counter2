@@ -1,0 +1,253 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    
+ 
+ <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+ </head>
+ 
+  <body>
+
+
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+    </div>
+  </div>
+</nav>
+
+
+<h1>Кластер VAULT</h1>
+
+<table  class="table table">
+ <thead class='thead-dark'>
+ <tr>
+  <th colspan=4>dc1</th>
+   <th colspan=4>dc2</th>
+
+     </tr>
+ <tr>
+   <th>name</th>
+   <th>ip</th>
+   <th>active</th>
+   <th>sealed</th>
+
+   <th>name</th>
+   <th>ip</th>
+   <th>active</th>
+   <th>sealed</th>
+  </tr>
+     </thead>
+     <tbody>
+              
+              
+        <tr><td >{{items2.server1.name }} </td>
+        <td> {{items2.server1.ip }}</td> 
+            <td >
+              {% if items.server1.standby %}
+                <span class="badge badge-warning">standby </span>
+
+            {% else %}
+                 <span class="badge badge-success">active</span>
+            {% endif %}
+             </td>
+             <td >
+              {% if items.server1.sealed %}
+                <span class="badge badge-warning">sealed </span>
+
+            {% else %}
+                 <span class="badge badge-success">unsealed</span>
+            {% endif %}
+             </td>
+
+
+
+
+        
+        <td >{{items4.server1.name}}</td>
+        <td> {{items4.server1.ip }}</td>
+           <td >
+              {% if items3.server1.standby %}
+                <span class="badge badge-warning">standby </span>
+
+            {% else %}
+                 <span class="badge badge-success">active</span>
+            {% endif %}
+          </td>
+
+             <td >
+              {% if items4.server1.sealed %}
+                <span class="badge badge-warning">sealed </span>
+
+            {% else %}
+                 <span class="badge badge-success">unsealed</span>
+            {% endif %}
+             </td>
+
+           </tr>
+          <tr>
+            <td >{{items2.server2.name}}</td>
+            <td> {{items2.server2.ip }}</td>
+           <td >
+              {% if items.server2.standby %}
+                <span class="badge badge-warning">standby </span>
+
+            {% else %}
+                 <span class="badge badge-success">active</span>
+            {% endif %}
+            </td>
+            <td >
+              {% if items.server1.sealed %}
+                <span class="badge badge-warning">sealed </span>
+
+            {% else %}
+                 <span class="badge badge-success">unsealed</span>
+            {% endif %}
+             </td>
+        <td >{{items4.server2.name}}</td>
+        <td> {{items4.server2.ip }}</td>
+           <td >
+              {% if items3.server2.standby %}
+                <span class="badge badge-warning">standby </span>
+
+            {% else %}
+                 <span class="badge badge-success">active</span>
+            {% endif %}
+            </td>
+             <td >
+              {% if items3.server2.sealed %}
+                <span class="badge badge-warning">sealed </span>
+
+            {% else %}
+                 <span class="badge badge-success">unsealed</span>
+            {% endif %}
+             </td>
+
+
+
+        </tr>
+
+       <tr>
+           <td >{{items2.server3.name}}</td>
+           <td> {{items2.server3.ip }}</td>
+           <td >
+              {% if items.server3.standby %}
+                <span class="badge badge-warning">standby </span>
+
+            {% else %}
+                 <span class="badge badge-success">active</span>
+            {% endif %}
+            </td>
+    <td >
+              {% if items.server3.sealed %}
+                <span class="badge badge-warning">sealed </span>
+
+            {% else %}
+                 <span class="badge badge-success">unsealed</span>
+            {% endif %}
+             </td>
+
+           <td >{{items4.server3.name}}</td>
+           <td> {{items4.server3.ip }}</td>
+           <td >
+              {% if items3.server3.standby %}
+                <span class="badge badge-warning">standby </span>
+
+            {% else %}
+                 <span class="badge badge-success">active</span>
+            {% endif %}
+            </td>
+    <td >
+              {% if items3.server3.sealed %}
+                <span class="badge badge-warning">sealed </span>
+
+            {% else %}
+                 <span class="badge badge-success">unsealed</span>
+            {% endif %}
+             </td>
+
+        </tr>
+
+
+
+
+   </tbody
+ </table>
+
+<br>
+
+<table  class="table table">
+
+<h1>Балансировщик</h1>
+
+ <thead class='thead-dark'>
+ <tr>
+  <th colspan=4>dc1</th>
+   <th colspan=4>dc2</th>
+
+     </tr>
+ <tr>
+   <th>ip</th>
+   <th>leader</th>
+   <th>key</th>
+   <th>valur</th>
+
+  <th>ip</th>
+   <th>leader</th>
+   <th>key</th>
+   <th>valur</th>
+</tr>
+
+     </thead>
+     <tbody>
+     <tr>
+      <td>{{ items5.ip }} </td>
+      <td>{{ items5.leader_address }} </td>
+      <td>{{ items5.key }} </td>
+      <td>{{ items5.value }} </td>
+     
+      <td>{{ items6.ip }} </td>
+      <td>{{ items6.leader_address }} </td>
+      <td>{{ items6.key }} </td>
+      <td>{{ items6.value }} </td>
+
+
+      </tr>
+     </tbody>
+     </table>
+
+
+
+
+
+
+
+    <!-- Optional JavaScript jQuery first, then Popper.js, then Bootstrap JS -->
+    
+<script src="{% static 'js/jquery-3.2.1.slim.min.js' %}"> </script>
+<script src="{% static 'js/popper.min.js'   %}" ></script>   
+<script src="{% static 'js/tether.min.js'    %}"></script>    
+<script src="{% static 'js/bootstrap.min.js' %}"></script>  
+
+
+
+ </body>
+ 
+ 
+
+</html>

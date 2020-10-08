@@ -1,0 +1,8 @@
+venv
+ounterdb/migrations/*.pyc
+counterdb/migrations/__pycache__/*.pyc
+counter/*.pyc
+counterdb/*.pyc
+counterdb/__pycache__/*.pyc
+counterdb/__pycache__/*.pyc
+counter/__pycache__/*.pyc

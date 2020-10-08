@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    
+ 
+ <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+ </head>
+ 
+  <body>
+
+
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+    </div>
+  </div>
+</nav>
+
+
+<h1>Номера</h1>
+
+<table  class="table table">
+ <thead class='thead-dark'>
+ <tr>
+  <th> Группа</th>
+  <th> Релиз</th>
+  <th>Артифакт</th>
+   <th >Последний номер</th>
+    <th >NEXUS</th>
+     </tr>
+     </thead>
+     <tbody>
+          {% for row in numbers %}    
+           <tr>
+           <td>{{ row.stand.syst }}</td>  
+           <td>{{ row.stand.stand }}</td>
+           <td>{{ row.stand.art }}</td>
+           <td>{{ row.number }}</td>
+           <td>{{ nexus_number }}</td>
+
+
+          </tr>   
+ {% endfor %}
+
+
+
+   </tbody
+ </table>
+
+<br>
+
+<table  class="table table">
+
+<h1>Очередь</h1>
+
+ <thead class='thead-dark'>
+ <tr>
+  <th >Номер</th>
+   <th>Статус</th>
+
+</tr>
+
+     </thead>
+     <tbody>
+  {% for item in rel_que %}
+
+<tr>
+   <td>{{ item.number }}</td>
+   
+   <td> 
+{% if item.status == 0 %}
+                <span class="badge  badge-success">СВОБОДЕН </span>
+
+            {% elif item.status == 1 %}
+                 <span class="badge badge-warning">В РЕЗЕРВЕ</span>
+            {% else %}
+                <span class="badge badge-danger">ЗАРЕГИСТРИРОВАН</span>
+            {% endif %}
+</td>
+
+
+
+</tr>
+ {% endfor %}
+     </tbody>
+
+</table>
+
+
+
+
+    <!-- Optional JavaScript jQuery first, then Popper.js, then Bootstrap JS -->
+    
+<script src="{% static 'js/jquery-3.2.1.slim.min.js' %}"> </script>
+<script src="{% static 'js/popper.min.js'   %}" ></script>   
+<script src="{% static 'js/tether.min.js'    %}"></script>    
+<script src="{% static 'js/bootstrap.min.js' %}"></script>  
+
+
+
+ </body>
+ 
+ 
+
+</html>

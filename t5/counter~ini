@@ -1,0 +1,23 @@
+[uwsgi]
+chdir=/home/shilo/counter_ver
+#module=counter.wsgi:application
+master=True
+pidfile=/tmp/cons-test.pid
+vacuum=True
+max-requests=5000
+
+#daemonize=/home/shilo/counter.log
+home=/home/shilo/counter_ver/venv
+module=counter.wsgi
+#:application
+env DJANGO_SETTINGS_MODULE=counter.settings
+max-requests= 5000
+#socket = 127.0.0.1:8082
+socket = 0.0.0.0:8001
+
+#chmod-socket = 660
+#vacuum = true
+harakiri = 20 # respawn processes taking more than 20 seconds
+limit-as = 128 # limit the project to 128 MB
+max-requests = 5000 # respawn processes after serving 5000 requests
+
